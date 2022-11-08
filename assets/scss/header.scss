@@ -1,0 +1,36 @@
+#nav{
+    height: 7vh;
+    width: 100vw;
+    background-color: blue;
+    margin:0px;
+    color: white;
+ 
+       ul{
+        display: inline-flex;
+        padding-left: 15px;
+         margin-top:-3vh;
+         margin-bottom:2vh ;
+         //padding-bottom:0px;
+         word-spacing: 10px;
+         margin-left:87vw ; 
+         list-style: none; 
+         font-size:1.3rem ;
+         text-align: center;
+    
+
+        a{
+        color: white;
+        padding-left: 15px;
+       
+        text-decoration: none;
+        
+    }}
+       }
+
+ #heading  {
+        font-size:2.1rem ;
+        font-weight: 800;
+        padding-top:10px;
+        padding-left:1vw ;
+       
+    }  

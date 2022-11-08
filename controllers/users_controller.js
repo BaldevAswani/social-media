@@ -1,19 +1,27 @@
 const User=require('../models/user'); 
 
 module.exports.profile = function(req, res){
-    res.end('<h1>User Profile</h1>');
+  return res.render('userProfile',{
+    title:"Users"
+
+  }); 
+  
+  
+  
 }
 
 module.exports.home = function(req, res){
-    return res.render('userProfile',{
-        title:"Users"
-   
-      });
+  res.end('<h1>User Profile</h1>');
 
 }   
 
 //render the sign up page
 module.exports.signUp=function(req,res){
+   if(req.isAuthenticated()){
+   return res.redirect('/users/profile');
+
+   }
+
    return res.render('user_sign _up',{
     title:"Codeial|Sign up"
    });
@@ -22,6 +30,10 @@ module.exports.signUp=function(req,res){
 
 // render the sign in page
 module.exports.signIn=function(req,res){
+  if(req.isAuthenticated()){
+   return res.redirect('/users/profile');
+
+   }
     return res.render('user_sign _in',{
      title:"Codeial|Sign in"
     });
@@ -60,9 +72,19 @@ module.exports.create = function(req,res){
 
 // SIGN IN CREATE A SESSION FOR THE USER
 module.exports.createSession = function(req,res){
-
+   
+  
+   return res.redirect('/users/profile');
 
 }
 
+module.exports.destroySession=function(req,res){
+  req.logout(function(err) {
+    if (err) { return next(err); }
+    res.redirect('/');
+  });
+
+
+}
 
 
